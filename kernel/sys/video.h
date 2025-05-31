@@ -1,7 +1,12 @@
 #ifndef OSI_VIDEO_H
 #define OSI_VIDEO_H
 
-void video_init();
+#include <stdint.h>
+
+#define VTRUE  1
+#define VFALSE 0
+
+char video_init();
 void clear_screen();
 void set_color(char color);
 void putchar(char c);

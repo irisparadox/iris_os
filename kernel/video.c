@@ -1,6 +1,6 @@
 #include "sys/video.h"
 #include "sys/io.h"
-#include "sys/stdarg.h"
+#include <stdarg.h>
 
 #define VWIDTH 80
 #define VHEIGHT 25
@@ -10,9 +10,17 @@ static int cursor_x = 0;
 static int cursor_y = 0;
 static char current_color = 0x07;
 
-void video_init() {
+char video_init() {
     clear_screen();
+    set_color(0x07);
     set_cursor(0, 0);
+
+    char* video = VMEM_PTR;
+    char backup = video[0];
+    video[0] = 'x';
+    if(video[0] != 'x') return VFALSE;
+    video[0] = backup;
+    return VTRUE;
 }
 
 void clear_screen() {

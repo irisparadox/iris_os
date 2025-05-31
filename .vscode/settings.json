@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "video.h": "c",
+        "stdint.h": "c",
+        "stdarg.h": "c",
+        "stdint-gcc.h": "c"
+    }
+}
